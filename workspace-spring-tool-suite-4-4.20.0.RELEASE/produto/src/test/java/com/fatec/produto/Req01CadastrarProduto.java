@@ -3,6 +3,7 @@ package com.fatec.produto;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.fatec.produto.model.Produto;
@@ -15,6 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 class Req01CadastrarProduto {
 	@Autowired
 	ProdutoRepository repository;
+	
+	@BeforeEach 		//executa sempre antes do caso de teste
+	void setup() {
+		System.out.println("Executando o before each...");
+	}
 
 	@Test
 	void ct01_cadastrar_produto_com_sucesso() {
